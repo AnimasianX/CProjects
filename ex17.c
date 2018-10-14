@@ -12,8 +12,9 @@ struct Person {
    int weight;
 };
 
-//basically how oo programming is
+//basically how oo programming is high level
 //this only creates a local version and is deleted when main() ends
+//struct Person julie = Person_crate("fjadkflj", 11,121,12); // example 
 struct Person Person_crate(char *name, int age, int height, int weight){
    struct Person who;
    who.name = name;
@@ -34,7 +35,7 @@ struct Person *Person_create(char *name, int age, int height, int weight){
 
    //ask OS to give me raw piece of memory
    //malloc calculates the size of the structure and allocates the appropriate size of memory
-
+   //ask OS to allocate a memory space for this new object who of Person structure.
    struct Person *who = malloc(sizeof(struct Person));
    //Assert checks if malloc returns NULL
    assert(who != NULL);
