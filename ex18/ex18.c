@@ -73,7 +73,7 @@ struct Connection *Database_open(const char *filename, char mode){
    //create a chunk of memory of the size of a Database struct to connection
    conn->db = malloc(sizeof(struct Database));
    //check if allocation of memory is successful or not
-   if(!conn->db){
+   if(!conn->db)
       die("Memory error");
    //if mode c, we write to file
    if(mode == 'c'){
@@ -97,7 +97,7 @@ struct Connection *Database_open(const char *filename, char mode){
    if(!conn->file){
       die("Failed to open the file");
        }
-   }
+   
    return conn;
 }
 
