@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <conio.h>
 
+//not using first element of array.
 char square[10] = {'o', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 int checkWin();
@@ -41,7 +41,7 @@ int main(){
     else{
       printf("Invalid move, try again.");
       player--;
-      getch();
+  
     }
       i = checkWin();
       player++;
@@ -56,7 +56,7 @@ int main(){
     printf("Game draw");
   }
 
-  getch();
+
 
   return 0;
 }
