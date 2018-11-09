@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 char grid[3][3];
 char check();
 void init_grid();
 void get_player_move();
 void get_computer_move();
-void disp_grid();
+void display_grid();
 
 
 int main(){
@@ -14,7 +15,7 @@ int main(){
   printf("You will be playing against the computer.\n");
 
   done = ' ';
-  init_matrix();
+  init_grid();
 
   do{
     display_grid();
@@ -43,7 +44,7 @@ int main(){
 
 
 
-void init_matrix(){
+void init_grid(){
   int i, j;
   for(i = 0; i < 3; i++){
     for(j = 0 ; j < 3; j++){
@@ -55,7 +56,7 @@ void init_matrix(){
 //player move
 void get_player_move(){
   int x, y;
-  printf("Enter x and y coordinates for your move: ");
+  printf("Enter x and y coordinates for your move: \n");
   printf("x: ");
   scanf("%d", &x);
   printf("y: ");
@@ -73,16 +74,16 @@ void get_computer_move(){
   int i, j;
   for(i = 0; i < 3; i++){
     for(j = 0; j < 3; j++){
-      if(matrix[i][j] == ' ')
+      if(grid[i][j] == ' ')
         break;
     }
-    if(matrix[i][j] == ' ')
+    if(grid[i][j] == ' ')
       break;
   }
 
   if(i*j == 9){
     printf("Draw\n");
-    exit();
+    exit(0);
   }
   else
     grid[i][j] = 'O';
@@ -101,25 +102,25 @@ void display_grid(){
 char check(){
   int i;
 
-//row checking
+  //row checking
   for(i = 0; i < 3; i++){
     if(grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2])
       return grid[i][0];
   }
-//column checking
-for(i = 0; i < 3; i++){
+  //column checking
+  for(i = 0; i < 3; i++){
   if(grid[0][i] == grid[1][i] && grid[0][i] == grid[2][i])
     return grid[0][i];
-}
+  }
 
-if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]){
+  if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]){
   return grid[0][0];
-}
+  }
 
-if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
+  if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
   return grid[0][2];
 
-  return ' ';
-}
 
+  }
+return ' ';
 }
